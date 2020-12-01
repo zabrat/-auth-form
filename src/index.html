@@ -5,10 +5,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Autorisation</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <div class="auth-container">
+            <form class="formAut">
+            <h1>Autorisation page</h1>
+            <label id="username" class = "username" for="username">Username or phone</label>
+            <input id="userninput" class="userninput" placeholder="Username or phone"
+            type="email|number" required pattern="(^(+994[- ]?)?((?\d{3})?[- ]?)?[\d- ]{7,10}$|[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$)" 
+            title="must contain email or phone number">
+            <label id="password" class = "password" for="password" pattern="(?=.*[a-z]).{8,32}"
+            title="Must contain at least one lowercase letter appear anywhere, and at least
+            8 and no more 32 characters"
+            >Password</label>
+            <input id="passwordinput" class="passwordinput" placeholder="password" type="password" required >
+            <button class="signin"> Sign in</button>
+            </form>
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
