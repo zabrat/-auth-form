@@ -27,8 +27,8 @@ module.exports = {
     module: {
         rules: [
             {test: /\.html$/, use: "html-loader"},
-            {test: /\.less$/, use: [CssWebpackPlugin.loader, "css-loader", "less-loader"]},
-            {test: /\.js$/,
+            {test: /\.less$/i, use: [CssWebpackPlugin.loader, "css-loader", "less-loader"]},
+            {test: /\.js$/i,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -70,7 +70,7 @@ module.exports = {
             filename: "index.html"
         }),
         new CssWebpackPlugin({
-            filename: "style.css"
+            filename: "style.css"        
         })
     ]
 }
