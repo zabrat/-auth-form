@@ -34,5 +34,5 @@ function addUser(newEmail, newPassword){
 // // isUserExist('zaur@gmail.com');
 // // isPasswordCorrect('zaur@gmail.com', 'marol');
 // addUser('ASAsd' , "wewqewqe");
-isUserExist()
+//isUserExist()
 
