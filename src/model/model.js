@@ -1,28 +1,39 @@
- class BackEnd {
+ class Model {
     constructor(){
         this.dataBase = [{email: 'nurlan@gmail.com', password: 'parol'}, {email: 'zaur@gmail.com', password: 'marol'}];
     }
 
-    isUserExist = (newEmail, newPassword) => {
-        for (let i = 0; i < dataBase.length; i++) {
-            if (newEmail == dataBase[i].email){
-                isPasswordCorrect(newPassword, i);
-            }
-        } 
-        return console.log('This Email isnt exist');
-    }
     isPasswordCorrect = (newPassword, index) => {
-        if (newPassword == dataBase[index].password) {
-            return console.log('You are welcome');
+        if (newPassword == this.dataBase[index].password) {
+            return true;
         } else {
-            return console.log('Enter the correct password');
+            return false;
         }
     }
+
+    isUserExist = (newEmail, newPassword) => {
+
+        
+        // for (let i = 0; i < this.dataBase.length; i++) {
+        //     if (newEmail == this.dataBase[i].user){
+        //         if(this.isPasswordCorrect(newPassword, i)){
+        //             return true;
+        //         } else {
+        //             alert('Your password is wrong!');
+        //             return false;
+        //         };
+                
+        //     }
+        // } 
+        // alert("This Email isn't exist");
+    }
+     
     addUser = (newEmail, newPassword) => {
-        dataBase.push({email: newEmail, password: newPassword});
-        return dataBase;
+        this.dataBase.push({user: newEmail, password: newPassword});
     }
 
 }
+
+export default Model;
 
 

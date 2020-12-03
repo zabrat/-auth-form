@@ -1,6 +1,70 @@
 import './reg-styles.less';
 import './auth-styles.less';
-import Reg from "./reg/reg.js";
-import Authform from "./auth/auth.js";
 
-new Authform();
+import Reg from "./reg/reg.js";
+import Auth from "./auth/auth.js";
+import Model from "./model/model.js";
+
+class Modals {
+    constructor(){
+        this.rootEl = null;
+        this.regForm = null;
+        this.authForm = null;
+        this.model = null;
+        this.userInput = null;
+        this.passwordInput = null;
+
+        this.init();
+        this.showRegForm();
+    }
+
+    init = () => {
+        this.rootEl = document.getElementById('root');
+        this.model = new Model();
+    }
+
+    showRegForm = () => {
+        this.rootEl.innerHTML = '';
+        this.regForm = new Reg();
+        const signUpBtn = document.getElementById("signUp");
+        const haveAcc = document.querySelector(".haveAcc");
+
+        signUpBtn.addEventListener("click", this.registration);
+        haveAcc.addEventListener("click", this.showAuthForm);
+
+    }
+
+    showAuthForm = () => {
+        this.rootEl.innerHTML = '';
+        this.authForm = new Auth();
+
+        const signInBtn = document.getElementById("signIn");
+        const regAcc = document.querySelector(".regAcc");
+
+        signInBtn.addEventListener("click", this.searchUser);
+        regAcc.addEventListener("click", this.showRegForm);
+
+    }
+
+    registration = event => {
+        this.setInputData(event);
+        this.model.addUser(this.userInput, this.passwordInput);
+
+        this.showAuthForm(); 
+    }
+
+    searchUser = event => {
+        this.setInputData(event);
+        
+        this.model.isUserExist();
+    }
+
+    setInputData = event =>{
+        event.preventDefault();
+
+        this.userInput = document.getElementById("user").value;
+        this.passwordInput = document.getElementById("password").value;
+    }
+
+}
+new Modals();
