@@ -1,4 +1,3 @@
-import './style.less';
 class Authform {
     constructor () {          
         this.rootElement = null;
@@ -21,8 +20,8 @@ class Authform {
         authcontainer.classList = "auth-container";
         authcontainer.innerHTML = `
         <form class="formAut">
-                <h1>Autorisation page</h1>
-                <label id="username" class = "username" for="username">Username or phone</label>
+                <h1>Autorisation</h1>
+                <label id="username" class = "username" for="username"> username or phone</label>
                 <input id="userninput" class="userninput" placeholder="Username or phone"
                 type="email||number" required>
                 <label id="password" class = "password" for="password">Password</label>
@@ -42,4 +41,5 @@ class Authform {
    
 };
 
-new Authform()
+
+export default Authform;
