@@ -1,5 +1,6 @@
 import './reg-styles.less';
 import './auth-styles.less';
+import './welcome-styles.less';
 
 import Reg from "./reg/reg.js";
 import Auth from "./auth/auth.js";
@@ -43,13 +44,28 @@ class Modals {
 
         signInBtn.addEventListener("click", this.searchUser);
         regAcc.addEventListener("click", this.showRegForm);
+    }
+
+    showWelcome = () => {
+        this.rootEl.innerHTML = `
+            <div class="fade"></div>
+
+            <section class="star-wars">
+                <div class="crawl">
+                    <div class="title">
+                    <p>Episode IV</p>
+                    <h1>A New Hope</h1>
+                    </div>
+                    <p>Welcome</p>
+                </div>
+            </section>`;
 
     }
 
     registration = event => {
         this.setInputData(event);
         this.model.addUser(this.userInput, this.passwordInput);
-
+        console.log(this.model.dataBase)
         this.showAuthForm(); 
     }
 
@@ -57,6 +73,10 @@ class Modals {
         this.setInputData(event);
         
         this.model.isUserExist();
+
+        if (true){
+            this.showWelcome();
+        }
     }
 
     setInputData = event =>{
