@@ -1,5 +1,5 @@
 {
-  "name": "webpack",
+  "name": "auth-form",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Musa-94/webpack.git"
+    "url": "git+https://github.com/zabrat/auth-form.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Musa-94/webpack/issues"
+    "url": "https://github.com/zabrat/auth-form/issues"
   },
-  "homepage": "https://github.com/Musa-94/webpack#readme",
+  "homepage": "https://github.com/zabrat/auth-form#readme",
   "dependencies": {
     "@babel/core": "7.7.4",
     "@babel/plugin-proposal-class-properties": "7.7.4",
