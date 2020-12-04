@@ -1,37 +1,32 @@
  class Model {
     constructor(){
-        this.dataBase = [{email: 'nurlan@gmail.com', password: 'parol'}, {email: 'zaur@gmail.com', password: 'marol'}];
+        this.dataBase = [{user: 'nurlan', password: 'parol'}, {user: 'zaur@gmail.com', password: 'marol'}];
+    }
+     
+    addUser = (newUser, newPassword) => {
+        this.dataBase.push({user: newUser, password: newPassword});
     }
 
-    isPasswordCorrect = (newPassword, index) => {
-        if (newPassword == this.dataBase[index].password) {
+
+    getUserData = (userName) => {
+        const found = this.dataBase.find(element => userName === element.user);
+                
+        return found ;      
+    }
+
+    checkPassword = (userName, password) => {
+        const passwordFromDb = this.getUserData(userName).password;
+
+        if (passwordFromDb === password) 
+        {
             return true;
-        } else {
+        }
+        else {
             return false;
         }
     }
 
-    isUserExist = (newEmail, newPassword) => {
-
-        
-        // for (let i = 0; i < this.dataBase.length; i++) {
-        //     if (newEmail == this.dataBase[i].user){
-        //         if(this.isPasswordCorrect(newPassword, i)){
-        //             return true;
-        //         } else {
-        //             alert('Your password is wrong!');
-        //             return false;
-        //         };
-                
-        //     }
-        // } 
-        // alert("This Email isn't exist");
-    }
-     
-    addUser = (newEmail, newPassword) => {
-        this.dataBase.push({user: newEmail, password: newPassword});
-    }
-
+    
 }
 
 export default Model;

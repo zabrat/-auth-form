@@ -64,18 +64,23 @@ class Modals {
 
     registration = event => {
         this.setInputData(event);
-        this.model.addUser(this.userInput, this.passwordInput);
-        console.log(this.model.dataBase)
-        this.showAuthForm(); 
-    }
 
+        if(this.model.getUserData(this.userInput)){
+            alert('this user already exist');
+        } else {
+        this.model.addUser(this.userInput, this.passwordInput);
+        this.showAuthForm(); 
+        }
+    }
     searchUser = event => {
         this.setInputData(event);
-        
-        this.model.isUserExist();
 
-        if (true){
+        if(!this.model.getUserData(this.userInput)){
+           alert ("We dont have a user with login " + this.userInput);
+        } else if (this.model.checkPassword(this.userInput, this.passwordInput)) {
             this.showWelcome();
+        } else {
+           alert("Check your password correction");
         }
     }
 
