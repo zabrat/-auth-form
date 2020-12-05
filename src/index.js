@@ -47,16 +47,13 @@ class Modals {
     }
 
     showWelcome = () => {
-        this.rootEl.innerHTML = `
-            <div class="fade"></div>
-
+        this.rootEl.innerHTML = `       
             <section class="star-wars">
                 <div class="crawl">
-                    <div class="title">
-                    <p>Episode IV</p>
-                    <h1>A New Hope</h1>
-                    </div>
-                    <p>Welcome</p>
+                    <p class="welcomeText">Welcome, dear ${this.userInput}!</br>
+                    You are on the site of 3 novice programmers: Behram, Nurlan and zaur!
+                    it is our first serious project, but, definitely, not the last one!</p>
+                    <audio src="./audio/StarWars.mp3" autoplay="autoplay"></audio>
                 </div>
             </section>`;
 
