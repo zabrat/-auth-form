@@ -24,9 +24,7 @@
         else {
             return false;
         }
-    }
-
-    
+    } 
 }
 
 export default Model;
