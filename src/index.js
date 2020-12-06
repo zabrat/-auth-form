@@ -2,6 +2,9 @@ import './reg-styles.less';
 import './auth-styles.less';
 import './welcome-styles.less';
 
+import mp3 from './audio/StarWars.mp3';
+
+
 import Reg from "./reg/reg.js";
 import Auth from "./auth/auth.js";
 import Model from "./model/model.js";
@@ -30,7 +33,7 @@ class Modals {
         const signUpBtn = document.getElementById("signUp");
         const haveAcc = document.querySelector(".haveAcc");
 
-        signUpBtn.addEventListener("submit", this.registration);
+        signUpBtn.addEventListener("click", this.registration);
         haveAcc.addEventListener("click", this.showAuthForm);
 
     }
@@ -42,7 +45,7 @@ class Modals {
         const signInBtn = document.getElementById("signIn");
         const regAcc = document.querySelector(".regAcc");
 
-        signInBtn.addEventListener("submit", this.searchUser);
+        signInBtn.addEventListener("click", this.searchUser);
         regAcc.addEventListener("click", this.showRegForm);
     }
 
@@ -53,7 +56,7 @@ class Modals {
                     <p class="welcomeText">Welcome, dear ${this.userInput}!</br>
                     You are on the site of 3 novice programmers: Behram, Nurlan and zaur!
                     it is our first serious project, but, definitely, not the last one!</p>
-                    <audio src="./audio/StarWars.mp3" autoplay="autoplay"></audio>
+                    <audio controls autoPlay src=${mp3}></audio>
                 </div>
             </section>`;
 
@@ -62,7 +65,7 @@ class Modals {
     registration = event => {
         event.preventDefault();
         this.setInputData();
-        // if(this.checkPasswordValidation()){
+        if(this.checkPasswordValidation() && this.checkUserValidation()){
             if(this.model.getUserData(this.userInput)){
                 alert('this user already exist');
             } else {
@@ -70,9 +73,9 @@ class Modals {
             console.log(this.model.dataBase)
             this.showAuthForm(); 
             }
-        // }else{
-        //     alert("Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters")
-        // }
+        }else{
+            alert("Password must contain at least 8 symbols, login must contain at least 4 symbols")
+        }
     }
 
     searchUser = event => {
@@ -95,11 +98,17 @@ class Modals {
         this.passwordInput = document.getElementById("password").value;
     }
 
-    // checkPasswordValidation = () =>{
-    //     const password =/(?=.*[1-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    checkPasswordValidation = () =>{
+        const password =/.{8,}/;
 
-    //     return password.test(this.passwordInput);
-    // }
+        return password.test(this.passwordInput);
+    }
+
+    checkUserValidation = () =>{
+        const userName =/.{4,}/;
+
+        return userName.test(this.userInput);
+    }
 
 }
 new Modals();
