@@ -30,7 +30,7 @@ class Modals {
         const signUpBtn = document.getElementById("signUp");
         const haveAcc = document.querySelector(".haveAcc");
 
-        signUpBtn.addEventListener("click", this.registration);
+        signUpBtn.addEventListener("submit", this.registration);
         haveAcc.addEventListener("click", this.showAuthForm);
 
     }
@@ -42,7 +42,7 @@ class Modals {
         const signInBtn = document.getElementById("signIn");
         const regAcc = document.querySelector(".regAcc");
 
-        signInBtn.addEventListener("click", this.searchUser);
+        signInBtn.addEventListener("submit", this.searchUser);
         regAcc.addEventListener("click", this.showRegForm);
     }
 
@@ -62,7 +62,7 @@ class Modals {
     registration = event => {
         event.preventDefault();
         this.setInputData();
-        if(this.checkPasswordValidation()){
+        // if(this.checkPasswordValidation()){
             if(this.model.getUserData(this.userInput)){
                 alert('this user already exist');
             } else {
@@ -70,9 +70,9 @@ class Modals {
             console.log(this.model.dataBase)
             this.showAuthForm(); 
             }
-        }else{
-            alert("Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters")
-        }
+        // }else{
+        //     alert("Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters")
+        // }
     }
 
     searchUser = event => {
@@ -95,11 +95,11 @@ class Modals {
         this.passwordInput = document.getElementById("password").value;
     }
 
-    checkPasswordValidation = () =>{
-        const password =/(?=.*[1-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    // checkPasswordValidation = () =>{
+    //     const password =/(?=.*[1-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
-        return password.test(this.passwordInput);
-    }
+    //     return password.test(this.passwordInput);
+    // }
 
 }
 new Modals();
