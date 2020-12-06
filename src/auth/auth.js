@@ -1,45 +1,34 @@
-class Authform {
+class Auth {
     constructor () {          
-        this.rootElement = null;
         this.signBtn = null;
-        this.userInput = null;
         this.password = null;
+        this.userInput = null;
+        this.rootElement = null;
+        
         this.init()
     }
     init = () => {
-        this.rootElement = document.getElementById("root")
+        this.rootElement = document.getElementById("root");
 
-        this.createAutform ()
-
-        this.signbtn = document.getElementById("signin")
-
-        this.signbtn = addEventListener( "submit", this.getInputvalues )
+        this.createAutform ();
     }
     createAutform = () => {
         const authcontainer = document.createElement("div");
         authcontainer.classList = "auth-container";
         authcontainer.innerHTML = `
-        <form class="formAut">
+        <form class="formAut" id="form">
                 <h1>Autorisation</h1>
-                <label id="username" class = "username" for="username"> username or phone</label>
-                <input id="userninput" class="userninput" placeholder="Username or phone"
-                type="email||number" required>
-                <label id="password" class = "password" for="password">Password</label>
-                <input required id="passwordinput" class="passwordinput" placeholder="password" type="password" required >
-                <button id="signin" class="signin" type ="submit" > Sign in</button>
-                <a href="https://youtu.be/CQeezCdF4mk">Forget username or password</a>
+                <label for="user"> Login</label>
+                <input type="text" id="user" class="user" autocomplete="off" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" class="password" autocomplete="off" required>
+                <button id="signIn" class="signIn"> Sign in</button>
+                <span class="regAcc">Sign up new account</span>
         </form>
         `
         this.rootElement.append(authcontainer);
     }
-
-    getInputvalues = event => {
-        event.preventDefault()
-        this.userInput = document.getElementById("userninput").value;
-        this.password = document.getElementById("passwordinput").value;
-    }
    
 };
 
-
-export default Authform;
+export default Auth;

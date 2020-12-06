@@ -5,12 +5,13 @@
   font-weight: normal;
   font-style: normal;
 }
+
 html, body {
   padding: 0;
   margin: 0;
 }
 
-#root {
+.root {
   height: 100vh;
   display: flex;
   background: url('https://cssanimation.rocks/demo/starwars/images/bg.jpg');
@@ -22,21 +23,19 @@ html, body {
   height: 450px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-family: 'Castoro', serif; 
   background: url(images/deathStar.png);
   background-size: 100%;
-  border-radius: 100%;
 }
+
 .formAut{
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   font-family: 'star-wars';
-  color: rgb(255, 153, 0);
 }
-.signin {
+
+.signIn {
   background-color: #ffbb00;
   margin-top: 10px;
   height: 30px;
@@ -45,12 +44,17 @@ html, body {
   border-radius: 10px;
   outline: none;
   font-family: 'star-wars';
+  cursor: pointer;
 }
 
-.signin:hover {
+.signIn:hover {
   background-color: #ffcd42;
 }
-.signin:active {
+.signIn:active {
   background-color: rgb(192, 141, 0);
 }
 
+.regAcc {
+  color: blue;
+  cursor: pointer;
+}
