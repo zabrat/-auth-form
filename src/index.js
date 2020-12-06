@@ -30,10 +30,10 @@ class Modals {
     showRegForm = () => {
         this.rootEl.innerHTML = '';
         this.regForm = new Reg();
-        const signUpBtn = document.getElementById("signUp");
+        const formEl = document.getElementById("form");
         const haveAcc = document.querySelector(".haveAcc");
 
-        signUpBtn.addEventListener("click", this.registration);
+        formEl.addEventListener("submit", this.registration);
         haveAcc.addEventListener("click", this.showAuthForm);
 
     }
@@ -42,10 +42,10 @@ class Modals {
         this.rootEl.innerHTML = '';
         this.authForm = new Auth();
 
-        const signInBtn = document.getElementById("signIn");
+        const formEl = document.getElementById("form");
         const regAcc = document.querySelector(".regAcc");
 
-        signInBtn.addEventListener("click", this.searchUser);
+        formEl.addEventListener("submit", this.searchUser);
         regAcc.addEventListener("click", this.showRegForm);
     }
 
@@ -65,18 +65,15 @@ class Modals {
     registration = event => {
         event.preventDefault();
         this.setInputData();
-        if(this.checkPasswordValidation() && this.checkUserValidation()){
-            if(this.model.getUserData(this.userInput)){
-                alert('this user already exist');
-            } else {
-            this.model.addUser(this.userInput, this.passwordInput);
-            console.log(this.model.dataBase)
-            this.showAuthForm(); 
-            }
-        }else{
-            alert("Password must contain at least 8 symbols, login must contain at least 4 symbols")
+        
+        if(this.model.getUserData(this.userInput)){
+            alert('this user already exist');
+        } else {
+        this.model.addUser(this.userInput, this.passwordInput);
+        console.log(this.model.dataBase)
+        this.showAuthForm(); 
         }
-    }
+}
 
     searchUser = event => {
         event.preventDefault();
@@ -91,23 +88,9 @@ class Modals {
         }
     }
 
-    
-
     setInputData = () =>{
         this.userInput = document.getElementById("user").value;
         this.passwordInput = document.getElementById("password").value;
-    }
-
-    checkPasswordValidation = () =>{
-        const password =/.{8,}/;
-
-        return password.test(this.passwordInput);
-    }
-
-    checkUserValidation = () =>{
-        const userName =/.{4,}/;
-
-        return userName.test(this.userInput);
     }
 
 }

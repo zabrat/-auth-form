@@ -18,13 +18,13 @@ class Auth {
         const authcontainer = document.createElement("div");
         authcontainer.classList = "auth-container";
         authcontainer.innerHTML = `
-        <form class="formAut"">
+        <form class="formAut" id="form">
                 <h1>Autorisation</h1>
                 <label for="user"> username or phone</label>
-                <input type="text" id="user" class="user">
+                <input type="text" id="user" class="user" autocomplete="off" required>
                 <label for="password">Password</label>
-                <input type="password" id="password" class="password">
-                <button id="signIn" class="signIn" type ="submit" > Sign in</button>
+                <input type="password" id="password" class="password" autocomplete="off" required>
+                <button id="signIn" class="signIn"> Sign in</button>
                 <span class="regAcc">Sign up new account</span>
         </form>
         `
