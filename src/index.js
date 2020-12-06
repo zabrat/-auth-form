@@ -2,12 +2,11 @@ import './reg-styles.less';
 import './auth-styles.less';
 import './welcome-styles.less';
 
-import mp3 from './audio/StarWars.mp3';
-
-
 import Reg from "./reg/reg.js";
 import Auth from "./auth/auth.js";
 import Model from "./model/model.js";
+
+import mp3 from './audio/StarWars.mp3';
 
 class Modals {
     constructor(){
@@ -30,6 +29,7 @@ class Modals {
     showRegForm = () => {
         this.rootEl.innerHTML = '';
         this.regForm = new Reg();
+
         const formEl = document.getElementById("form");
         const haveAcc = document.querySelector(".haveAcc");
 
@@ -65,12 +65,11 @@ class Modals {
     registration = event => {
         event.preventDefault();
         this.setInputData();
-        
+
         if(this.model.getUserData(this.userInput)){
-            alert('this user already exist');
+            alert('This login already exist.');
         } else {
         this.model.addUser(this.userInput, this.passwordInput);
-        console.log(this.model.dataBase)
         this.showAuthForm(); 
         }
 }
@@ -80,18 +79,18 @@ class Modals {
         this.setInputData();
 
         if(!this.model.getUserData(this.userInput)){
-           alert ("We dont have a user with login " + this.userInput);
+           alert ("We dont have user with login " + this.userInput);
         } else if (this.model.checkPassword(this.userInput, this.passwordInput)) {
             this.showWelcome();
         } else {
-           alert("Check your password correction");
+           alert("Check your password correction.");
         }
     }
 
-    setInputData = () =>{
+    setInputData = () => {
         this.userInput = document.getElementById("user").value;
         this.passwordInput = document.getElementById("password").value;
     }
-
 }
+
 new Modals();

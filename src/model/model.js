@@ -17,16 +17,12 @@
     checkPassword = (userName, password) => {
         const passwordFromDb = this.getUserData(userName).password;
 
-        if (passwordFromDb === password) 
-        {
+        if (passwordFromDb === password){
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     } 
 }
 
 export default Model;
-
-

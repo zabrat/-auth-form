@@ -1,9 +1,9 @@
 class Auth {
     constructor () {          
-        this.rootElement = null;
         this.signBtn = null;
-        this.userInput = null;
         this.password = null;
+        this.userInput = null;
+        this.rootElement = null;
         
         this.init()
     }
@@ -11,8 +11,6 @@ class Auth {
         this.rootElement = document.getElementById("root");
 
         this.createAutform ();
-
-
     }
     createAutform = () => {
         const authcontainer = document.createElement("div");
@@ -20,7 +18,7 @@ class Auth {
         authcontainer.innerHTML = `
         <form class="formAut" id="form">
                 <h1>Autorisation</h1>
-                <label for="user"> username or phone</label>
+                <label for="user"> Login</label>
                 <input type="text" id="user" class="user" autocomplete="off" required>
                 <label for="password">Password</label>
                 <input type="password" id="password" class="password" autocomplete="off" required>
