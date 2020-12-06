@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'star-wars';
+  src: url('fonts/StarJedi-DGRW.woff') format('woff'),
+        url('fonts/StarJedi-DGRW.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://cssanimation.rocks/demo/starwars/images/bg.jpg');
+}
+
+.reg-container{
+  width: 450px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(images/deathStar.png);
+  background-size: 100%;
+  border-radius: 100%;
+}
+
+.reg-container form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'star-wars';
+  
+}
+
+form h1 {
+  color: black;
+  -webkit-text-stroke: 0.5px  #FFE81F;
+  letter-spacing: 3px;
+}
+
+form label {
+  color: black;
+  -webkit-text-stroke: 0.5px  #FFE81F;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+input {
+  border-radius: 30px;
+  height: 15px;
+  width: 250px;
+  outline: none;
+  font-size: 15px;
+  background: skyblue;
+  box-shadow: 0 0 20px skyblue; 
+  font-family: 'star-wars';
+  text-align: center;
+}
+
+.signUp{
+  background-color: #ffbb00;
+  margin-top: 10px;
+  height: 30px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-family: 'star-wars';
+  cursor: pointer;
+}
+
+.signUp:hover {
+  background-color: #ffcd42;
+}
+
+.signUp:active {
+  background-color: rgb(192, 141, 0);
+}
+
+.haveAcc {
+  color: blue;
+  cursor: pointer;
+}
