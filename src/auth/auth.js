@@ -18,7 +18,7 @@ class Auth {
         const authcontainer = document.createElement("div");
         authcontainer.classList = "auth-container";
         authcontainer.innerHTML = `
-        <form class="formAut" form method="post">
+        <form class="formAut"">
                 <h1>Autorisation</h1>
                 <label for="user"> username or phone</label>
                 <input type="text" name="user" id="user" class="user">
