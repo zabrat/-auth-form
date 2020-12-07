@@ -8,20 +8,13 @@
     }
 
 
-    getUserData = (userName) => {
-        const found = this.dataBase.find(element => userName === element.user);
-                
-        return found ;      
-    }
+    getUserData = userName => this.dataBase.find(element => userName === element.user);      
+    
 
     checkPassword = (userName, password) => {
         const passwordFromDb = this.getUserData(userName).password;
-
-        if (passwordFromDb === password){
-            return true;
-        } else {
-            return false;
-        }
+        
+        return passwordFromDb === password;
     } 
 }
 

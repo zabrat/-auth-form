@@ -35,7 +35,6 @@ class Modals {
 
         formEl.addEventListener("submit", this.registration);
         haveAcc.addEventListener("click", this.showAuthForm);
-
     }
 
     showAuthForm = () => {
@@ -50,7 +49,8 @@ class Modals {
     }
 
     showWelcome = () => {
-        this.rootEl.innerHTML = `       
+        this.rootEl.innerHTML = `   
+            <button id="logOut" class="logOut">logout</button>  
             <section class="star-wars">
                 <div class="crawl">
                     <p class="welcomeText">Welcome, dear ${this.userInput}!</br>
@@ -59,7 +59,8 @@ class Modals {
                     <audio controls autoPlay src=${mp3}></audio>
                 </div>
             </section>`;
-
+            
+        this.logOut();
     }
 
     registration = event => {
@@ -69,8 +70,8 @@ class Modals {
         if(this.model.getUserData(this.userInput)){
             alert('This login already exist.');
         } else {
-        this.model.addUser(this.userInput, this.passwordInput);
-        this.showAuthForm(); 
+            this.model.addUser(this.userInput, this.passwordInput);
+            this.showAuthForm(); 
         }
 }
 
@@ -90,6 +91,12 @@ class Modals {
     setInputData = () => {
         this.userInput = document.getElementById("user").value;
         this.passwordInput = document.getElementById("password").value;
+    }
+
+    logOut = () => {
+        const logOutBtn = document.getElementById("logOut");
+
+        logOutBtn.addEventListener("click", this.showRegForm);
     }
 }
 

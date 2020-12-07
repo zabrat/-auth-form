@@ -5,13 +5,15 @@ class Auth {
         this.userInput = null;
         this.rootElement = null;
         
-        this.init()
+        this.init();
     }
+
     init = () => {
         this.rootElement = document.getElementById("root");
 
-        this.createAutform ();
+        this.createAutform();
     }
+
     createAutform = () => {
         const authcontainer = document.createElement("div");
         authcontainer.classList = "auth-container";
